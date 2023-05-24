@@ -107,12 +107,12 @@ class LastPageWiki:
         """Method to display the page list"""
         print("{0} Showing List {0}".format("*"*5))
         print("Wiki link counts : {}.".format(len(page_list)))
-        last_page = page_list[-1]
+        
+        #last page is the list is an already seen page. Take second last page in the list.
+        last_page = page_list[-2]
         last_page_title = ' '.join(last_page.split('/')[-1].split('_'))
         print("Wiki Chain ends in '{}'".format(last_page_title))
-        page_title_list=[]
-        for link in page_list:
-            page_title_list.append(' '.join(link.split('/')[-1].split('_')))
+        page_title_list=[ ' '.join(link.split('/')[-1].split('_')) for link in page_list ]
         print(' -> '.join(page_title_list))
         print("*"*25)
 
